@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    {% comment %} <link rel="stylesheet" type="text/css" href="styles.css"> {% endcomment %}
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label>value 1</label>
+            <input type="text" name="num1" value="{{n1}}" class="class-control">
+        </div><br> 
+        {% if error  %}
+        <div>please enter the value</div><br> 
+        {% endif %}
+        <!-- <div>
+            <label>opration</label>
+            <select name="opr">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
+        </select>
+        </div><br>
+
+        <div>
+            <label>value 2</label>
+            <input type="text" name="num2" value="{{n2}}" class="class-control">
+        </div> -->
+        <div>
+            <button type="submit">calulate</button>
+        </div><br>
+
+        <div>
+            <label>output</label>
+            <input type="text" value="{{c}}" class="class-control">
+        </div>
+    </form>
+    <!-- <script src="scripts.js"></script> -->
+</body>
+
+</html>

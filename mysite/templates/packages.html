@@ -1,0 +1,116 @@
+{% extends 'base.html' %} {% block sumit %}
+{{email}}
+<section class="packages" id="packages">
+    <div>
+        <form method="get" style="background-color: black;">
+            <input type="text" name="packages" style="background-color:red;" value="" />
+            <button type="submit">find</button>
+        </form>
+    </div>
+    <h1 class="heading">popular packages</h1>
+
+    <div class="box-container">
+        {% for n in packageData %}
+
+        <div class="box">
+            <div class="image">
+                <img src="/media/{{n.image}}" alt="">
+            </div>
+            <div class="content">
+                <h3>{{n.place}}</h3>
+                <p>{{n.see}}</p>
+                <div class="price">{{n.price}}</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>
+        {% empty%} not found {% endfor %}
+        <nav aria-label="...">
+            <ul class="pagination">
+                {% comment %} <p>/packages/?page={{packageData.previous_page_number}}</p> {% endcomment %}
+                {% if packageData.has_previous%} 
+                <li class="page-item disabled">
+                    <a class="page-link" href="/packages/?page={{packageData.previous_page_number}}" tabindex="-1">Previous</a>
+                </li>
+                {% endif %}
+                {% comment %} <li class="page-item"><a class="page-link" href="/packages/?page=1">1</a></li> {% endcomment %}
+                {% for n  in list %}
+                <li class="page-item">
+                    <a class="page-link" href="/packages/?page={{n}}">{{n}}</a>
+                </li>
+                {% endfor %}
+                {% if packageData.has_next%}
+                <li class="page-item">
+                    <a class="page-link" href="/packages/?page={{packageData.previous_next_number}}">Next</a>
+                </li>
+                {% endif%}
+            </ul>
+        </nav>
+        
+        {% comment %} <div class="box">
+            <div class="image">
+                <img src="/static/images/img-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Goa Package</h3>
+                <p>The most popular beach of Goa, Baga is located close to Calangute beach, around 30 Km North of Panaji. Baga is popular for its nightlife with some very famous clubs such as Brittos, Titos and Mambos.There is also a range of water sports
+                    that you can try your hands at.</p>
+                <div class="price">Rs 7,999 - Rs 12,999</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="/static/images/img-3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Delhi Package</h3>
+                <p>Boasting cultural diversity and rich heritage, Delhi is home to several temples, tombs, gardens, forts, museums, markets and more. We take you to some of the best spots in the city. Pick the best packages from here and enjoy the tour of
+                    Delhi with guide.</p>
+                <div class="price">Rs 2,999 - Rs 8,999</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="/static/images/img-4.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Jaipur Package</h3>
+                <p>We organise Jaipur & Rajasthan tours that offer incredible attractions like Forts and Palaces, Deserts, Traditional Villages, colorful cattle fairs, sacred places, camel safaris, beautiful lakes, hill stations and the people. </p>
+                <div class="price">Rs 11,999 - Rs15,999</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="/static/images/img-5.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Kerala Package</h3>
+                <p>A trip to Kerala is always an experience through greenery to the hills and its climate. Browse through our hand-picked Kerala tour packages prepared for you. Our experts are also available to prepare customised tourism packages</p>
+                <div class="price">Rs 4,999 - Rs 9,999</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="/static/images/img-6.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Darjeeling</h3>
+                <p>A trip to Darjeeling will include a ride on the famous Himalayan Railway, a visit to Tiger Hill, or a tour of the stunning landscaped gardens here. Activities like hiking and boating. Do not miss out on a trip to Darjeeling Is famous Mall
+                    Road
+                </p>
+                <div class="price">Rs 20,000 - Rs 25,000</div>
+                <a href="/contact" class="btn">explore now</a>
+            </div>
+        </div>  {% endcomment %}
+
+    </div>
+
+</section>
+{% endblock sumit %}

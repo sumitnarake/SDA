@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block sumit %}
+<section class="contact" id="contact">
+
+    <div class="wrapper1">
+        <div class="title1">
+            <h1>contact us form</h1>
+        </div>
+        <div class="contact-form">
+            <form method="post" >
+                {% csrf_token %} {% if error %}
+                <div>please enter {{value}}</div>{% endif %}
+                <div class="input-fields">
+                    <!-- {{form}} -->
+
+                    <input type="text" class="input" placeholder="Name" name="name" value="{{name}}">
+                    <input type="email" class="input" placeholder="Email Address" name="email" value="{{email}}" pattern=".+@gmail\.com">
+                    <input type="phone" class="input" placeholder="Phone" name="phone" ,value="{{phone}}">
+                    <input type="text" class="input" placeholder="Subject" name="subject" value="{{subject}}">
+                </div>
+                <div class="msg">
+                    <div class="btn1"><button type="submit">send</div>
+            </form>
+        </div>
+    </div>
+</div> 
+</section>
+{% endblock sumit %}

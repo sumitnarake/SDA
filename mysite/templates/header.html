@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tour & Travel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-hiking"></i> travel.com</a>
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="/home">home</a>
+            <a href="/category">Adventure</a>
+            <a href="/packages">packages</a>
+            <a href="/contact">contact</a>
+            {% if user.is_authenticated %}
+                <h1><b>welcome {{user.first_name}}</h1>
+                <a href="/logout">logout</a>
+            {% endif %}
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div> 
+            <div id="search-btn" class="fas fa-search"></div>
+          
+        </div>
+    </header>

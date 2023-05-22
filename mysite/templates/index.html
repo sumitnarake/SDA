@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block sumit %}
+<div class="search-form">
+    <div id="close-search" class="fas fa-times"></div>
+    <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</div>
+
+<section class="home" id="home">
+
+    <div class="wrapper">
+
+        <div class="box" style="background: url(/static/images/home1.jpg) no-repeat;">
+            <div class="content">
+                <span>never stop</span>
+                <h3>exploring</h3>
+                <p>Travel.com offers best deals on India tour packages.</p>
+                {% if user.is_authenticated %}
+                <a href="/packages" class="btn">get started\</a> {% comment %} <a href="/login" class="btn">login</a> {% endcomment %}
+                <h1>welcome {{user.first_name}}</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock sumit %}
